@@ -38,5 +38,6 @@ for i in range(10):
     img_crop = trans_compose_2(img)
     writer.add_image("toCrop",img_crop,i)
 
+print(trans_random.shape)
 
 writer.close()
