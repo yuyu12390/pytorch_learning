@@ -21,7 +21,7 @@ class Yuyu(nn.Module):
 
 yuyu = Yuyu()
 
-writer = SummaryWriter("maxpool_log")
+writer = SummaryWriter("../maxpool_log")
 step = 0
 for data in dataloader:
     imgs,targets = data

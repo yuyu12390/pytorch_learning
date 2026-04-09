@@ -36,7 +36,7 @@ total_test_step = 0
 epoch = 10
 
 #添加tensorboard
-writer = SummaryWriter("model_log")
+writer = SummaryWriter("../model_log")
 
 
 for i in range(epoch):

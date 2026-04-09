@@ -2,9 +2,9 @@ from PIL import Image
 from torchvision import transforms
 from torch.utils.tensorboard import SummaryWriter
 
-writer = SummaryWriter("logs")
+writer = SummaryWriter("../logs")
 
-img = Image.open("image/terminal.png")
+img = Image.open("../image/terminal.png")
 
 #ToTensor
 trans_totensor = transforms.ToTensor()

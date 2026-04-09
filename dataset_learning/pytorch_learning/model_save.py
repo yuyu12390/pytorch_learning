@@ -1,10 +1,16 @@
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
+import torchvision
+from torch import nn
 from torch.nn import Flatten
-from torch.utils.tensorboard import SummaryWriter
 
+vgg16 = torchvision.models.vgg16(pretrained=False)
+# 保存方式1（模型结构+参数）
+torch.save(vgg16, "vgg16_method1.pth")
 
+# 保存方式2(模型参数)
+torch.save(vgg16.state_dict(), "vgg16_method2.pth")
+
+#陷阱
 class Yuyu(nn.Module):
     def __init__(self):
         super(Yuyu,self).__init__()
@@ -30,28 +36,9 @@ class Yuyu(nn.Module):
             nn.Linear(64,10)
         )
 
-
-
     def forward(self, input):
-        output = self.conv1(input)
-        output = self.maxpool1(output)
-        output = self.conv2(output)
-        output = self.maxpool2(output)
-        output = self.conv3(output)
-        output = self.maxpool3(output)
-        output = self.flatten(output)
-        output = self.linear1(output)
-        output = self.linear2(output)
+        output = self.model1(input)
         return output
 
 yuyu = Yuyu()
-
-print(yuyu)
-input = torch.ones(64,3,32,32)
-output = yuyu(input)
-print(output.shape)
-
-writer = SummaryWriter("sequ_log")
-writer.add_graph(yuyu,input)
-
-writer.close()
+torch.save(yuyu, "yuyu1.pth")

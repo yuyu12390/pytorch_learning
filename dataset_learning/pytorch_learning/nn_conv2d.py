@@ -21,7 +21,7 @@ class Yuyu(nn.Module):
 yuyu = Yuyu()
 print(yuyu)
 
-writer = SummaryWriter("conv")
+writer = SummaryWriter("../conv")
 
 step = 0
 for data in dataloader:

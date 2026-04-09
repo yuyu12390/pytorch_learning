@@ -31,7 +31,7 @@ class Yuyu(nn.Module):
 
 yuyu = Yuyu()#创建神经网络
 
-writer = SummaryWriter("relu_log")
+writer = SummaryWriter("../relu_log")
 step = 0
 for data in dataloader:
     imgs,targets = data
